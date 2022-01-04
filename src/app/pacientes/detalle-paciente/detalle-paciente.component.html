@@ -1,0 +1,97 @@
+
+<div class="abrir-modal animacion fadeIn" *ngIf="detalleService.modal">
+    <div class="modal" tabindex="-1" role="dialog" style="display:block;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ titulo }}</h5>
+                    <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-sm">
+                                <ul *ngIf="paciente" class="list-group text-dark mb-3">
+                                    <li class="list-group-item">Nombre: <strong>{{paciente.nombre}}</strong></li>
+                                    <li class="list-group-item">Apellido: <strong>{{paciente.apellido}}</strong></li>
+                                    <li class="list-group-item">Documento Identidad: <strong>{{paciente.documentoIdentidad}}</strong></li>
+                                    <li class="list-group-item">Genero: <strong>{{paciente.genero}}</strong></li>
+                                    <li class="list-group-item">Lugar de nacimiento: <strong>{{paciente.lugarNacimiento}}</strong></li>
+                                    <li class="list-group-item">Fecha de nacimiento: <strong>{{paciente.fechaNacimiento}}</strong></li>
+                                    <li class="list-group-item">Tipo de Sangre: <strong>{{paciente.tipoSangre}}</strong></li>
+                                    <li class="list-group-item">Eps: <strong>{{paciente.eps}}</strong></li>
+                                    <li class="list-group-item">Dirección: <strong>{{paciente.direccion}}</strong></li>
+                                    <li class="list-group-item">Telefono: <strong>{{paciente.telefono}}</strong></li>
+                                    <li class="list-group-item">Email: <strong>{{paciente.email}}</strong></li>
+                                    <li class="list-group-item">Estado Civil: <strong>{{paciente.estadoCivil}}</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="btn btn-success btn-sm" 
+                                type="button" 
+                                name="consulta"
+                                [routerLink]="['/consultas/form', paciente.id]">
+                            Crear Consulta
+                        </button>
+                        </div>
+
+                        <div class="row">
+                            <div class="alert alert-info my-4"
+                                 *ngIf="paciente.consultas.length == 0">
+                                No hay consultas asignadas a este paciente
+                            </div>
+
+                            <table class="table table-bordered table-striped my-4"
+                                   *ngIf="paciente.consultas.length > 0">
+                                <thead>
+                                    <tr>
+                                        <th>Id Consulta</th>
+                                        <th>Motivo Consulta</th>
+                                        <th>Fecha</th>
+                                        <th>Detalles</th>
+                                        <th>Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let consulta of paciente.consultas">
+                                        <td>{{consulta.id}}</td>
+                                        <td>{{consulta.motivoConsulta}}</td>
+                                        <td>{{consulta.createdAt}}</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm"
+                                                    type="button"
+                                                    [routerLink]="['/consultas', consulta.id]">
+                                                        Ver más...
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-danger btn-sm"
+                                                    type="button"
+                                                    (click)="deleteConsulta(consulta)">
+                                                        Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button (click)="cerrarModal()" type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

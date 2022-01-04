@@ -1,0 +1,134 @@
+
+<!-- pregunta si errores existe con ?, si este existe entnces 
+    aplique la propiedad length -->
+    <ul class="alert alert-danger"
+    *ngIf="errores?.length > 0">
+    <li *ngFor="let err of errores">
+        {{ err }}
+    </li>
+</ul>
+
+<div class="card bg-dark text-white">
+    <div class="card-header">{{ titulo }}</div>
+    <div class="card-body">
+
+        <form #pacienteForm="ngForm">
+            <div class="form-group row my-2">
+                <label for="nombre" 
+                    class="col-form-label col-sm-2">
+                    Nombre
+                </label>
+
+                <!-- [(ngModel)] relaciona el valor con el atributo 
+                     en ambas direcciones -->
+                <!-- las directivas de required, minlenght, #nombre, *ngIf
+                     son para validar los campos del formulario -->
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.nombre" 
+                        name="nombre"
+                        #nombre="ngModel">
+                        <div class="alert alert-danger" 
+                             *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                            <div *ngIf="nombre.errors?.['required']">
+                                El nombre es requerido
+                            </div>
+                            <div *ngIf="nombre.errors?.['minlength']">
+                                El nombre debe tener al menos 4 caracteres
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="form-group row my-2">
+                <label for="apellido" 
+                    class="col-form-label col-sm-2">
+                    Apellido
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.apellido" 
+                        name="apellido"
+                        #apellido="ngModel">
+                        <div class="alert alert-danger" 
+                             *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                            <div *ngIf="apellido.errors?.['required']">
+                                El apellido es requerido
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="form-group row my-2">
+                <label for="email" 
+                    class="col-form-label col-sm-2">
+                    Documento Identidad
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.documentoIdentidad" 
+                        name="documento"
+                        #documento="ngModel">
+                        <div class="alert alert-danger" 
+                             *ngIf="documento.invalid && (documento.dirty || documento.touched)">
+                            <div *ngIf="documento.errors?.['required']">
+                                El documento es requerido
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <!-- <div class="form-group row my-2">
+                <label for="region" 
+                    class="col-form-label col-sm-2">
+                    Region
+                </label>
+                <div class="col-sm-6">
+                    <select class="form-control"
+                        [compareWith]="compararRegion"
+                        [(ngModel)]="cliente.region" 
+                        name="region"
+                        #region="ngModel">
+                            <option [ngValue]="undefined">
+                                --- Seleccione una región ---
+                            </option>
+                            <option *ngFor="let region of regiones" 
+                                [ngValue]="region">
+                                {{region.nombre}}
+                            </option>
+                    </select>
+                </div>
+            </div> -->
+
+            <div class="form-group row my-2">
+                <div class="col-sm-6">
+
+                    <!-- (click) escucha el evento y cuando este ocurre llama
+                          el metodo create() -->
+                    <button class="btn btn-primary" 
+                        role="button" 
+                        (click)='createPaciente()' 
+                        *ngIf="!paciente.id else elseBlock"
+                        [disabled]="!pacienteForm.form.valid">
+                        Crear
+                    </button>
+
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" 
+                            role="button" 
+                            (click)='updatePaciente()'
+                            [disabled]="!pacienteForm.form.valid">
+                            Editar
+                        </button>
+                    </ng-template>
+
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
