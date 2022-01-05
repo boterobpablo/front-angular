@@ -6,7 +6,7 @@
     <div class="card-body">
 
         <h4 class="card-title">
-            <a [routerLink]="['/pacientes']" class="btn btn-light btn-xs">
+            <a [routerLink]="['/pacientes']" class="btn btn-secondary btn-xs">
                 &laquo; volver
             </a>
         </h4>
@@ -28,41 +28,10 @@
             <li class="list-group-item">Medicamento: <strong>{{consulta.medicamento}}</strong></li>
             <li class="list-group-item">Diagnostico: <strong>{{consulta.diagnostico}}</strong></li>
             <li class="list-group-item">Tratamiento: <strong>{{consulta.tratamiento}}</strong></li>
+            <li class="list-group-item">Médico: 
+                <strong>{{consulta.medico.nombre}} {{consulta.medico.apellido}} - {{consulta.medico.profesion}}</strong>
+            </li>
         </ul>
-
-        <!-- <table class="table table-striped table-hover table-bordered my-3">
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of factura.items">
-                    <td>{{item.producto.nombre}}</td>
-                    <td>{{item.producto.nombre}}</td>
-                    <td>{{item.cantidad}}</td>
-                    <td>{{item.importe}}</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h5 class="d-flex justify-content-end mb-3">
-            <span>Gran Total: </span>
-            <span class="badge bg-secondary">{{factura.total}}</span>
-        </h5>
-
-        <div class="card border-info">
-            <div class="card card-header">
-                Observaciones
-            </div>
-            <div class="card card-body">
-                <p *ngIf="!factura.observacion">No tiene ninguna observación</p>
-                <p *ngIf="factura.observacion">{{factura.observacion}}</p>
-            </div>
-        </div> -->
 
     </div>
 

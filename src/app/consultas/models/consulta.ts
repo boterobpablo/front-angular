@@ -1,3 +1,4 @@
+import { Medico } from "src/app/medicos/medico";
 import { Paciente } from "src/app/pacientes/paciente";
 
 export class Consulta {
@@ -12,4 +13,5 @@ export class Consulta {
     tratamiento: string;
     createdAt: string;
     paciente: Paciente;
+    medico: Medico;
 }

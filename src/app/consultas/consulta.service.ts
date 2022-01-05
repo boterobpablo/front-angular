@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Consulta } from './models/consulta';
+import { Medico } from '../medicos/medico';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,11 @@ export class ConsultaService {
 
   constructor(private http: HttpClient,
               private router: Router) { }
+
+  // METODO PARA OBTENER LOS MEDICOS
+  getMedicos(): Observable<Medico[]>{
+    return this.http.get<Medico[]>(this.urlEndPoint + '/medicos');
+  }
 
   // OBTENER CONSULTA
   getConsulta(id: number): Observable<Consulta> {

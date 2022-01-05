@@ -6,7 +6,7 @@
     <div class="card-body">
 
         <h4 class="card-title">
-            <a [routerLink]="['/pacientes']" class="btn btn-light btn-xs">
+            <a [routerLink]="['/pacientes']" class="btn btn-secondary btn-xs">
                 &laquo; volver
             </a>
         </h4>
@@ -92,27 +92,27 @@
                 </div>
             </div>
 
-            <!-- <div class="form-group row my-2">
-                <label for="producto" 
+            <div class="form-group row my-2">
+                <label for="medico" 
                     class="col-form-label col-sm-2">
-                    Producto
+                    Médico
                 </label>
                 <div class="col-sm-6">
                     <select class="form-control"
-                        [compareWith]="compararProducto"
-                        [(ngModel)]="itemFactura.producto" 
-                        name="producto"
-                        #producto="ngModel">
+                        [compareWith]="compararMedicos"
+                        [(ngModel)]="consulta.medico" 
+                        name="medico"
+                        #medico="ngModel">
                             <option [ngValue]="undefined">
-                                --- Seleccione un producto ---
+                                --- Seleccione un médico ---
                             </option>
-                            <option *ngFor="let producto of productos" 
-                                [ngValue]="producto">
-                                {{producto.nombre}}
+                            <option *ngFor="let medico of medicos" 
+                                [ngValue]="medico">
+                                {{medico.nombre}} {{medico.apellido}} - {{medico.profesion}}
                             </option>
                     </select>
                 </div>
-            </div> -->
+            </div>
 
 
             <div class="form-group row my-2 mt-4">

@@ -1,7 +1,7 @@
 
 <!-- pregunta si errores existe con ?, si este existe entnces 
     aplique la propiedad length -->
-    <ul class="alert alert-danger"
+<ul class="alert alert-danger"
     *ngIf="errores?.length > 0">
     <li *ngFor="let err of errores">
         {{ err }}
@@ -9,11 +9,11 @@
 </ul>
 
 <div class="card bg-dark text-white">
-    <div class="card-header">{{ titulo }}</div>
+    <div class="card-header"><h4 class="mt-3">{{ titulo }}</h4></div>
     <div class="card-body">
 
         <form #pacienteForm="ngForm">
-            <div class="form-group row my-2">
+            <div class="form-group row my-3">
                 <label for="nombre" 
                     class="col-form-label col-sm-2">
                     Nombre
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="form-group row my-2">
+            <div class="form-group row my-3">
                 <label for="apellido" 
                     class="col-form-label col-sm-2">
                     Apellido
@@ -61,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="form-group row my-2">
+            <div class="form-group row my-3">
                 <label for="documento" 
                     class="col-form-label col-sm-2">
                     Documento Identidad
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <div class="form-group row my-2">
+            <div class="form-group row my-3">
                 <label for="genero" 
                     class="col-form-label col-sm-2">
                     Genero
@@ -95,27 +95,117 @@
                 </div>
             </div>
 
-            <!-- <div class="form-group row my-2">
-                <label for="region" 
+            <div class="form-group row my-3">
+                <label for="lugarNacimiento" 
                     class="col-form-label col-sm-2">
-                    Region
+                    Lugar de Nacimiento
                 </label>
                 <div class="col-sm-6">
-                    <select class="form-control"
-                        [compareWith]="compararRegion"
-                        [(ngModel)]="cliente.region" 
-                        name="region"
-                        #region="ngModel">
-                            <option [ngValue]="undefined">
-                                --- Seleccione una región ---
-                            </option>
-                            <option *ngFor="let region of regiones" 
-                                [ngValue]="region">
-                                {{region.nombre}}
-                            </option>
-                    </select>
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.lugarNacimiento" 
+                        name="lugarNacimiento"
+                        #lugarNacimiento="ngModel">
                 </div>
-            </div> -->
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="fechaNacimiento" 
+                    class="col-form-label col-sm-2">
+                    Fecha de Nacimiento
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.fechaNacimiento" 
+                        name="fechaNacimiento"
+                        #fechaNacimiento="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="tipoSangre" 
+                    class="col-form-label col-sm-2">
+                    Tipo de sangre
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.tipoSangre" 
+                        name="tipoSangre"
+                        #tipoSangre="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="eps" 
+                    class="col-form-label col-sm-2">
+                    Eps
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.eps" 
+                        name="eps"
+                        #eps="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="direccion" 
+                    class="col-form-label col-sm-2">
+                    Dirección
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.direccion" 
+                        name="direccion"
+                        #direccion="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="telefono" 
+                    class="col-form-label col-sm-2">
+                    Telefono
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.telefono" 
+                        name="telefono"
+                        #telefono="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="email" 
+                    class="col-form-label col-sm-2">
+                    Email
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.email" 
+                        name="email"
+                        #email="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="eps" 
+                    class="col-form-label col-sm-2">
+                    Estado civil
+                </label>
+                <div class="col-sm-6">
+                    <input type="text" 
+                        class="form-control" 
+                        [(ngModel)]="paciente.estadoCivil" 
+                        name="estadoCivil"
+                        #estadoCivil="ngModel">
+                </div>
+            </div>
 
             <div class="form-group row my-2">
                 <div class="col-sm-6">
