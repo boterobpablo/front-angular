@@ -49,7 +49,7 @@ export class PacientesComponent implements OnInit {
             this.pacientes = this.pacientes.filter(pac => pac !== paciente);
             swalWithBootstrapButtons.fire(
               'Paciente Eliminado!',
-              `Paciente ${paciente.nombre} eliminado con éxito.`,
+              `Paciente ${paciente.nombre} ha sido eliminado con éxito.`,
               'success'
             )
           })

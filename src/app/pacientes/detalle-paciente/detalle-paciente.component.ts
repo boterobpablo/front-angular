@@ -15,7 +15,7 @@ export class DetallePacienteComponent implements OnInit {
 
   @Input() paciente: Paciente;
 
-  titulo: string = "Detalle del paciente";
+  titulo: string = "Detalles del paciente";
 
   constructor(public pacienteService: PacienteService,
               public detalleService: DetalleService,

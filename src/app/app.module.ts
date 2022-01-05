@@ -11,6 +11,8 @@ import { DetallePacienteComponent } from './pacientes/detalle-paciente/detalle-p
 import { FormComponent } from './pacientes/form.component';
 import { ConsultasComponent } from './consultas/consultas.component';
 import { DetalleConsultasComponent } from './consultas/detalle-consultas.component';
+import { HomeComponent } from './home/home.component';
+import { MedicosComponent } from './medicos/medicos.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DetalleConsultasComponent } from './consultas/detalle-consultas.compone
     DetallePacienteComponent,
     FormComponent,
     ConsultasComponent,
-    DetalleConsultasComponent
+    DetalleConsultasComponent,
+    HomeComponent,
+    MedicosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,36 @@
+
+
+<div class="card text-white my-5">
+    <div class="card-header text-dark">Especialistas</div>
+    <div class="card-body table-responsive">
+        <h5 class="card-title text-dark mb-3">Listado de Especialistas</h5>
+
+        <div class="alert alert-info"
+             *ngIf="medicos?.length == 0">
+            No hay registros en la base de datos
+        </div>
+        <!-- *ngIf="medicos.length > 0" -->
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Documento Identidad</th>
+                    <th>Profesion</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let medico of medicos">
+                    <td>{{ medico.id }}</td>
+                    <td>{{ medico.nombre }}</td>
+                    <td>{{ medico.apellido }}</td>
+                    <td>{{ medico.documentoIdentidad }}</td>
+                    <td>{{ medico.profesion }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

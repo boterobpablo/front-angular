@@ -5,12 +5,18 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { FormComponent } from './pacientes/form.component';
 import { DetalleConsultasComponent } from './consultas/detalle-consultas.component';
 import { ConsultasComponent } from './consultas/consultas.component';
+import { HomeComponent } from './home/home.component';
+import { MedicosComponent } from './medicos/medicos.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/pacientes',
+    redirectTo: '/inicio',
     pathMatch: 'full'
+  },
+  {
+    path: 'inicio',
+    component: HomeComponent
   },
   {
     path: 'pacientes',
@@ -31,6 +37,10 @@ const routes: Routes = [
   {
     path: 'consultas/form/:pacienteId',
     component: ConsultasComponent
+  },
+  {
+    path: 'especialistas',
+    component: MedicosComponent
   }
 
 
