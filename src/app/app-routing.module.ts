@@ -29,7 +29,7 @@ const routes: Routes = [
     component: DetalleConsultasComponent
   },
   {
-    path: 'consultas/form/:clienteId',
+    path: 'consultas/form/:pacienteId',
     component: ConsultasComponent
   }
 

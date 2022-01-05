@@ -19,8 +19,14 @@ export class ConsultaService {
     return this.http.get<Consulta>(`${this.urlEndPoint}/${id}`);
   }
 
+  // CREAR CONSULTA
+  createConsulta(consulta: Consulta): Observable<Consulta> {
+    return this.http.post<Consulta>(this.urlEndPoint, consulta);
+  }
+
   // ELIMINAR CONSULTA
   deleteConsulta(id: number): Observable<void> {
     return this.http.get<void>(`${this.urlEndPoint}/${id}`);
   }
+
 }

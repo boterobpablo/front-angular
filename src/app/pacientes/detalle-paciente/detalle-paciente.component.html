@@ -51,7 +51,6 @@
                                    *ngIf="paciente.consultas.length > 0">
                                 <thead>
                                     <tr>
-                                        <th>Id Consulta</th>
                                         <th>Motivo Consulta</th>
                                         <th>Fecha</th>
                                         <th>Detalles</th>
@@ -60,7 +59,6 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let consulta of paciente.consultas">
-                                        <td>{{consulta.id}}</td>
                                         <td>{{consulta.motivoConsulta}}</td>
                                         <td>{{consulta.createdAt}}</td>
                                         <td>

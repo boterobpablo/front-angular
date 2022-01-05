@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PacienteService } from '../pacientes/paciente.service';
 import { ConsultaService } from './consulta.service';
 import { Consulta } from './models/consulta';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-consultas',
@@ -27,6 +28,14 @@ export class ConsultasComponent implements OnInit {
       this.pacienteService.getPaciente(pacienteId).subscribe(paciente => this.consulta.paciente = paciente);
     });
 
+  }
+
+  createConsulta(): void {
+    this.consultaService.createConsulta(this.consulta)
+      .subscribe(consulta => {
+        swal.fire(this.titulo, `Consulta ${consulta.motivoConsulta} creada con éxito`, 'success');
+        this.router.navigate(['/pacientes'])
+    });
   }
 
 }
